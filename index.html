@@ -16,21 +16,21 @@
                 height: 100%;
                 overflow: hidden;
             }
-            button {
+            .Button--language {
+                border: 1px solid rgb(87, 104, 79);
+                color: rgb(57, 77, 48);
+                border-radius: 4px;
+                font-weight: 700;
+                background-color: transparent;
+                cursor: pointer;
                 position: fixed;
                 top: 2vw;
                 right: 1vh;
                 z-index: 1;
-                border: 1px solid rgb(87, 104, 79);
                 margin: 0px;
                 font-size: 0.5rem;
                 padding: 12px;
                 min-height: 40px;
-                color: rgb(57, 77, 48);
-                background-color: transparent;
-                cursor: pointer;
-                border-radius: 4px;
-                font-weight: 700;
             }
             iframe {
                 position: absolute;
@@ -48,7 +48,7 @@
         />
         <meta
             property="og:image"
-            content="https://raw.githubusercontent.com/tadan/cuppino/main/static/cuppino_sm.jpg"
+            content="https://raw.githubusercontent.com/tadan/cuppino/main/static/cuppino_sm-21.jpg"
         />
         <meta property="og:url" content="http://cuppino.it" />
         <meta name="twitter:title" content="Cuppino.it 🥄" />
@@ -58,7 +58,7 @@
         />
         <meta
             name="twitter:image"
-            content="https://raw.githubusercontent.com/tadan/cuppino/main/static/cuppino_sm.jpg"
+            content="https://raw.githubusercontent.com/tadan/cuppino/main/static/cuppino_sm-21.jpg"
         />
         <meta name="twitter:card" content="summary_large_image" />
         <!-- Global site tag (gtag.js) - Google Analytics -->
@@ -77,7 +77,7 @@
         </script>
     </head>
     <body>
-        <a href="eng.html"><button>English</button></a>
+        <a href="eng.html"><button class="Button--language">English</button></a>
         <iframe
             id="typeform-full"
             width="100%"
