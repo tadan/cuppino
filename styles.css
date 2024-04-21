@@ -1,0 +1,181 @@
+/* General Body Styles */
+body {
+    font-family: 'Rosario', sans-serif;
+    margin: 0;
+    padding: 0;
+    background: #e1d8c7; /* Off-White Beige as the main background color */
+    color: #22281b; /* Dark Greenish for text, provides contrast */
+}
+
+/* Header with Logo and Navigation Styles */
+header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1rem 2rem;
+    background: transparent; /* or any other color */
+}
+
+#logo {
+    max-width: 150px; /* Logo size */
+    height: auto;
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+}
+
+nav ul li {
+    margin-left: 20px;
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: #22281b; /* Link color */
+    font-size: 1rem;
+}
+
+/* Section Styles */
+section {
+    padding: 2em;
+}
+
+.content-section {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    min-height: 40rem; /* Adjust as needed */
+}
+
+.parallax-image {
+    min-width: 45%;
+    min-height: 45rem; /* Adjust as needed */
+    background-position: center;
+    background-size: cover;
+    background-attachment: no-repeat; /* Parallax effect */
+}
+
+.content-text {
+    flex: 1;
+    min-width: 50%;
+    padding: 2rem;
+    z-index: 1;
+    position: relative; /* Ensure content is over the image */
+}
+
+/* Alternating layout for left and right images */
+.image-left .parallax-image {
+    order: -1;
+}
+
+.image-right .parallax-image {
+    order: 2;
+}
+
+/* Numbers Container */
+.numbers-container {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    padding: 2rem 0;
+}
+
+.number h3 {
+    font-size: 4rem; /* Big number size */
+    text-align: center;
+    font-weight: bold;
+    margin: 0;
+    color: #22281b; /* Or choose a color that fits the design */
+}
+
+.number p {
+    font-size: 1rem;
+    text-align: center;
+    color: #22281b; /* Or choose a color that fits the design */
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .numbers-container {
+        flex-direction: column;
+        text-align: center;
+    }
+    .number {
+        margin-bottom: 1rem;
+    }
+    .number h3 {
+        font-size: 3rem; /* Slightly smaller number size for mobile */
+    }
+}
+
+/* Vision Section */
+#vision {
+    background-color: transparent; /* Light Beige */
+}
+
+/* Started Section */
+#started {
+    background-color: #e1d8c7; /* Off-White Beige */
+}
+
+/* Idea Section */
+#idea {
+    background-color: #c7b591; /* Light Beige */
+}
+
+/* Contact and Collaboration Section */
+#contact-collaboration {
+    background-color: #90896d; /* Muted Olive */
+    color: #22281b; /* Dark Greenish for text */
+}
+
+/* Footer Styles */
+footer {
+    background-color: #464332; /* Dark Brown for the footer */
+    color: #e1d8c7; /* Off-White Beige for footer text */
+    padding: 1em;
+    text-align: center;
+}
+
+/* Headings Style */
+h2 {
+    font-family: 'Rosario', sans-serif;
+    color: #22281b; /* Dark Greenish for headings */
+    font-size: 4rem;
+}
+p,
+li {
+    font-size: 1.5rem;
+}
+
+/* Responsive Styles */
+@media only screen and (max-width: 768px) {
+    h2 {
+        font-size: 1.5rem; /* Adjust font size for smaller devices */
+    }
+
+    .content-section {
+        flex-direction: column;
+    }
+
+    .numbers-container {
+        flex-direction: column;
+        text-align: center;
+    }
+    .number {
+        margin-bottom: 1rem;
+    }
+    .number h3 {
+        font-size: 3rem; /* Slightly smaller number size for mobile */
+    }
+    .parallax-image,
+    .content-text {
+        min-width: 100%;
+        order: unset;
+    }
+
+    .parallax-image {
+        background-attachment: scroll; /* Disable parallax on small screens */
+    }
+}
