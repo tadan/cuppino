@@ -1,27 +1,31 @@
-document.addEventListener('DOMContentLoaded', (event) => {
+document.addEventListener('DOMContentLoaded', function () {
+    const counterElements = document.querySelectorAll('.number h3')
+    options = {
+        duration: 5,
+    }
     let observer = new IntersectionObserver(
-        (entries, observer) => {
+        (entries) => {
             entries.forEach((entry) => {
                 if (entry.isIntersecting) {
-                    let counter = entry.target
-                    let countUp = new CountUp(
-                        counter,
-                        counter.getAttribute('data-count')
+                    const finalNumber = entry.target.dataset.count
+                    const countUpInstance = new countUp.CountUp(
+                        entry.target.id,
+                        finalNumber,
+                        options
                     )
-                    if (!countUp.error) {
-                        countUp.start()
+                    if (!countUpInstance.error) {
+                        countUpInstance.start()
                     } else {
-                        console.error(countUp.error)
+                        console.error('CountUp Error:', countUpInstance.error)
                     }
-                    observer.unobserve(entry.target) // Stop observing the target
+                    observer.unobserve(entry.target) // Optional: Unobserve after animating
                 }
             })
         },
-        { threshold: 0.6 }
-    ) // Trigger when 60% of the target is visible
+        { threshold: 0.7 }
+    )
 
-    // Observe the target
-    document.querySelectorAll('.number h3').forEach((target) => {
-        observer.observe(target)
+    counterElements.forEach((el) => {
+        observer.observe(el)
     })
 })
