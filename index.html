@@ -100,14 +100,11 @@
                         authentic Italian cuisine to the capital but does so
                         through sustainable, environmentally friendly practices.
                     </p>
-                    <!-- <a
-                        href="#contact-collaboration"
-                        class="cta-button"
-                        target="_blank"
-                        >Get in Touch</a
-                    > -->
+                    <a href="#catering" class="cta-button" target="_blank"
+                        >Book us</a
+                    >
                     <!-- Newsletter Signup Form -->
-                    <div class="newsletter">
+                    <!-- <div class="newsletter">
                         <p>
                             Subscribe to our newsletter for the latest updates
                             and see where we are:
@@ -119,7 +116,7 @@
                             src="https://eomail6.com/form/ea31e4da-3977-11ef-b3c9-ed027650c7b7.js"
                             data-form="ea31e4da-3977-11ef-b3c9-ed027650c7b7"
                         ></script>
-                    </div>
+                    </div> -->
                 </div>
             </section>
 
@@ -221,30 +218,70 @@
             <section class="content-section" id="catering">
                 <div class="content-text">
                     <h2>Catering Enquiry</h2>
+                    <p>We will get back to you shortly</p>
+                    <section class="content-section" id="catering">
+                        <div class="content-text">
+                            <form id="cateringForm">
+                                <input
+                                    type="text"
+                                    id="name"
+                                    name="name"
+                                    placeholder="Your Name"
+                                    required
+                                />
+                                <input
+                                    type="email"
+                                    id="email"
+                                    name="email"
+                                    placeholder="Your Email"
+                                    required
+                                />
+                                <input
+                                    type="date"
+                                    id="date"
+                                    name="date"
+                                    required
+                                />
+                                <input
+                                    type="number"
+                                    id="numberOfPeople"
+                                    name="numberOfPeople"
+                                    placeholder="Number of People"
+                                    required
+                                />
+                                <select
+                                    id="typeOfEvent"
+                                    name="typeOfEvent"
+                                    required
+                                >
+                                    <option value="">Select Event Type</option>
+                                    <option value="Private Event"
+                                        >Private Event</option
+                                    >
+                                    <option value="After Work"
+                                        >After Work</option
+                                    >
+                                    <option value="Corporate Event"
+                                        >Corporate</option
+                                    >
+                                    <option value="Wedding">Wedding</option>
+                                    <option value="Birthday">Birthday</option>
+                                    <option value="Other">Other</option>
+                                </select>
+                                <input
+                                    type="number"
+                                    id="budget"
+                                    name="budget"
+                                    placeholder="Budget (in SEK)"
+                                    required
+                                />
+                                <button type="submit">Send Inquiry</button>
+                            </form>
+                        </div>
+                    </section>
 
-                    <!-- Newsletter Signup Form -->
-                    <div class="newsletter">
-                        <html>
-                            <head>
-                                <!-- ... (existing head content) ... -->
-                                <script src="https://cdn.jsdelivr.net/npm/@notionhq/client@2.2.3/build/index.min.js"></script>
-                            </head>
-                            <body>
-                                <!-- ... (existing body content) ... -->
-                                <section class="content-section" id="contact">
-                                    <div class="content-text">
-                                        <form id="contactForm">
-                                            <input type="text" id="name" name="name" placeholder="Your Name" required>
-                                            <input type="email" id="email" name="email" placeholder="Your Email" required>
-                                            <textarea id="message" name="message" placeholder="Your Message" required></textarea>
-                                            <button type="submit">Send</button>
-                                        </form>
-                                    </div>
-                                </section>
-                            
-                                
                     <!-- Social Media Links -->
-                    <div class="social-media">
+                    <!--  <div class="social-media">
                         <a
                             href="https://tiktok.com/cuppino.it"
                             class="social-button"
@@ -257,43 +294,73 @@
                             target="_blank"
                             ><i class="fab fa-instagram"></i> Instagram</a
                         >
-                    </div>
+                    </div> -->
                 </div>
             </section>
         </main>
 
         <footer>
-            <!-- Footer content such as address, social links, etc. -->
+            <div class="social-media">
+                <a
+                    href="https://tiktok.com/cuppino.it"
+                    class="social-button"
+                    target="_blank"
+                    ><i class="fab fa-tiktok"></i> TikTok</a
+                >
+                <a
+                    href="https://instagram.com/cuppino.it"
+                    class="social-button"
+                    target="_blank"
+                    ><i class="fab fa-instagram"></i> Instagram</a
+                >
+            </div>
         </footer>
         <!-- JS Libraries and Scripts -->
         <script>
-            document.getElementById('contactForm').addEventListener('submit', async (e) => {
-                e.preventDefault();
-                
-                const formData = {
-                    name: document.getElementById('name').value,
-                    email: document.getElementById('email').value,
-                    message: document.getElementById('message').value
-                };
-    
-                try {
-                    const response = await fetch('/.netlify/functions/submit-form', {
-                        method: 'POST',
-                        body: JSON.stringify(formData),
-                        headers: { 'Content-Type': 'application/json' }
-                    });
-    
-                    if (response.ok) {
-                        alert('Thank you for your message. We will get back to you soon!');
-                        document.getElementById('contactForm').reset();
-                    } else {
-                        alert('There was an error submitting your form. Please try again.');
+            document
+                .getElementById('cateringForm')
+                .addEventListener('submit', async (e) => {
+                    e.preventDefault()
+
+                    const formData = {
+                        name: document.getElementById('name').value,
+                        email: document.getElementById('email').value,
+                        date: document.getElementById('date').value,
+                        numberOfPeople: document.getElementById(
+                            'numberOfPeople'
+                        ).value,
+                        typeOfEvent: document.getElementById('typeOfEvent')
+                            .value,
+                        budget: document.getElementById('budget').value,
                     }
-                } catch (error) {
-                    console.error('Error:', error);
-                    alert('There was an error submitting your form. Please try again.');
-                }
-            });
+
+                    try {
+                        const response = await fetch(
+                            '/.netlify/functions/submit-form',
+                            {
+                                method: 'POST',
+                                body: JSON.stringify(formData),
+                                headers: { 'Content-Type': 'application/json' },
+                            }
+                        )
+
+                        if (response.ok) {
+                            alert(
+                                'Thank you for your inquiry. We will get back to you soon!'
+                            )
+                            document.getElementById('cateringForm').reset()
+                        } else {
+                            alert(
+                                'There was an error submitting your form. Please try again.'
+                            )
+                        }
+                    } catch (error) {
+                        console.error('Error:', error)
+                        alert(
+                            'There was an error submitting your form. Please try again.'
+                        )
+                    }
+                })
         </script>
         <script>
             // Add smooth scroll to all links
