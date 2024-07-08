@@ -1,5 +1,5 @@
 [build]
-  functions = "js/funtions"
+  functions = "js/functions"
 
 [[redirects]]
   from = "/.netlify/functions/*"
