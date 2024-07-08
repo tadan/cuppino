@@ -8,7 +8,14 @@ exports.handler = async (event) => {
         return { statusCode: 405, body: 'Method Not Allowed' }
     }
 
-    const { name, email, message } = JSON.parse(event.body)
+    const {
+        name,
+        email,
+        date,
+        numberOfPeople,
+        typeOfEvent,
+        budget,
+    } = JSON.parse(event.body)
 
     // Initialize Notion client
     const notion = new Client({ auth: process.env.NOTION_API_KEY })
@@ -20,7 +27,10 @@ exports.handler = async (event) => {
             properties: {
                 Name: { title: [{ text: { content: name } }] },
                 Email: { email: email },
-                Message: { rich_text: [{ text: { content: message } }] },
+                Date: { date: { start: date } },
+                'Number Of People': { number: parseInt(numberOfPeople) },
+                'Type of Event': { select: { name: typeOfEvent } },
+                Budget: { number: parseInt(budget) },
             },
         })
 
@@ -36,10 +46,17 @@ exports.handler = async (event) => {
         })
 
         await transporter.sendMail({
-            from: '"Your Website" <noreply@your-domain.com>',
+            from: '"Cuppino Catering" <noreply@your-domain.com>',
             to: 'your-email@example.com',
-            subject: 'New Contact Form Submission',
-            text: `Name: ${name}\nEmail: ${email}\nMessage: ${message}`,
+            subject: 'New Catering Inquiry',
+            text: `
+        Name: ${name}
+        Email: ${email}
+        Date: ${date}
+        Number of People: ${numberOfPeople}
+        Type of Event: ${typeOfEvent}
+        Budget: ${budget} SEK
+      `,
         })
 
         return {
