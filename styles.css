@@ -5,22 +5,24 @@ body {
     font-style: normal;
     margin: 0;
     padding: 0;
-    background: #e1d8c7; /* Off-White Beige as the main background color */
-    color: #22281b; /* Dark Greenish for text, provides contrast */
+    background: #fff6e5; /* Off-White Beige as the main background color */
+    color: #194c24; /* Dark Greenish for text, provides contrast */
 }
-
+.flex-col {
+    background: #fff6e5;
+}
 /* Header with Logo and Navigation Styles */
 header {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: 1rem 2rem;
+    padding: 2rem;
     background: transparent; /* or any other color */
     transition: all 0.3s ease; /* Smooth transition for layout changes */
 }
 
 #logo {
-    max-width: 150px; /* Logo size */
+    max-width: 10rem; /* Logo size */
     height: auto;
 }
 
@@ -37,8 +39,11 @@ nav ul li {
 
 nav ul li a {
     text-decoration: none;
-    color: #22281b; /* Link color */
-    font-size: 1rem;
+    text-transform: uppercase;
+    color: #134216; /* Link color */
+    font-size: 1.25rem;
+    font-family: 'barlow', sans-serif;
+    font-weight: 700;
 }
 
 /* Section Styles */
@@ -90,7 +95,7 @@ section {
     text-align: center;
     font-weight: bold;
     margin: 0;
-    color: #22281b; /* Or choose a color that fits the design */
+    color: #194c24; /* Or choose a color that fits the design */
 }
 
 .number p {
@@ -101,14 +106,14 @@ section {
 
 /* Vision Section */
 #vision {
-    background-color: #e1d8c7; /* Light Beige */
+    background-color: transparent; /* Light Beige */
 }
 
 .cta-button {
     display: inline-block;
     padding: 1rem 2rem;
     margin: 1rem 0;
-    background-color: #444; /* Dark background for visibility */
+    background-color: #194c24; /* Dark background for visibility */
     color: #fff; /* White text */
     text-decoration: none;
     border-radius: 5px; /* Rounded corners */
@@ -122,7 +127,7 @@ section {
 
 /* Past Section */
 #past {
-    background-color: #c7b591; /* Off-White Beige */
+    background-color: #f7ddb2; /* Off-White Beige */
 }
 
 /* Idea Section */
@@ -165,12 +170,17 @@ section {
     display: flex;
     flex-direction: column;
     align-items: center;
-    color: #22281b; /* Dark Greenish for text */
-    background-color: #90896d; /* Muted Olive */
+    color: white; /* Dark Greenish for text */
+    background-color: #134216; /* Muted Olive */
     text-align: center; /* Center text alignment */
     padding: 2rem 1rem; /* Add padding as needed */
 }
-
+#contact-collaboration h2 {
+    color: #fff6e5;
+}
+#idea .content-text {
+    text-align: center;
+}
 #contact-collaboration .content-text {
     max-width: 600px; /* Set a max-width for text content for better readability on larger screens */
 }
@@ -208,7 +218,7 @@ section {
 .social-media {
     width: 100%; /* Full width */
     display: flex;
-    justify-content: center; /* Center horizontally */
+    justify-content: left; /* Center horizontally */
     flex-wrap: wrap; /* Wrap elements to the next line if not enough space */
     margin-top: 20px; /* Space above newsletter and social media links */
 }
@@ -243,7 +253,6 @@ section {
     background-color: #666; /* Color transition on hover */
 }
 
-.newsletter p,
 .social-media p {
     text-align: center; /* Center-align the text for consistency */
 }
@@ -262,7 +271,7 @@ h2 {
     font-weight: 600;
     font-style: normal;
     text-transform: uppercase;
-    color: #22281b; /* Dark Greenish for headings */
+    color: #194c24; /* Dark Greenish for headings */
     font-size: 4rem;
     line-height: 0.9;
 }
@@ -297,6 +306,10 @@ li {
         text-align: center; /* Ensure links are centered */
         width: 100%; /* Optional: Makes the entire area clickable */
         padding: 10px; /* Padding for larger tap targets */
+        text-transform: uppercase;
+        color: #134216;
+        font-weight: bold;
+        font-family: barlow;
     }
     .cta-button {
         text-align: center;
