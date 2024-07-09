@@ -29,7 +29,7 @@ exports.handler = async (event) => {
                 Email: { email: email },
                 Date: { date: { start: date } },
                 'Number Of People': { number: parseInt(numberOfPeople) },
-                'Type of Event': { select: { name: typeOfEvent } },
+                'Type of Event': { multi_select: [{ name: typeOfEvent }] },
                 Budget: { number: parseInt(budget) },
             },
         })
