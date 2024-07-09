@@ -34,20 +34,20 @@ exports.handler = async (event) => {
             },
         })
 
-        // Send email notification
+        // Create a transporter using ProtonMail SMTP
         let transporter = nodemailer.createTransport({
-            host: 'smtp.gmail.com',
-            port: 587,
-            secure: false,
+            host: process.env.SMTP_HOST,
+            port: process.env.SMTP_PORT,
+            secure: process.env.SMTP_PORT === '465', // true for 465, false for other ports
             auth: {
-                user: process.env.EMAIL_USER,
-                pass: process.env.EMAIL_PASS,
+                user: process.env.SMTP_USER, // your custom domain email address
+                pass: process.env.SMTP_PASS, // your ProtonMail SMTP password
             },
         })
 
         // Send email notification to Cuppino
         await transporter.sendMail({
-            from: '"Cuppino Catering" <noreply@your-domain.com>',
+            from: `"Cuppino Catering" <${process.env.SMTP_USER}>`,
             to: 'cuppino.italy@gmail.com',
             subject: 'New Catering Inquiry',
             text: `
@@ -62,7 +62,7 @@ exports.handler = async (event) => {
 
         // Send confirmation email to customer
         await transporter.sendMail({
-            from: '"Cuppino Catering" <noreply@your-domain.com>',
+            from: `"Cuppino Catering" <${process.env.SMTP_USER}>`,
             to: email,
             subject: 'Catering Inquiry Confirmation',
             text: `
@@ -83,15 +83,20 @@ exports.handler = async (event) => {
                 Cuppino Catering Team
             `,
         })
+
         return {
             statusCode: 200,
             body: JSON.stringify({ message: 'Form submitted successfully' }),
         }
     } catch (error) {
-        console.error('Error:', error)
+        console.error('Error adding to Notion:', error.message)
+        console.error('Error details:', error)
         return {
             statusCode: 500,
-            body: JSON.stringify({ message: 'Error submitting form' }),
+            body: JSON.stringify({
+                message: 'Error submitting form',
+                error: error.message,
+            }),
         }
     }
 }
