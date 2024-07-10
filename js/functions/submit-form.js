@@ -34,14 +34,14 @@ exports.handler = async (event) => {
             },
         })
 
-        // Create a transporter using ProtonMail SMTP
+        // Create a transporter using Gmail SMTP
         let transporter = nodemailer.createTransport({
             host: process.env.SMTP_HOST,
             port: process.env.SMTP_PORT,
             secure: process.env.SMTP_PORT === '465', // true for 465, false for other ports
             auth: {
-                user: process.env.SMTP_USER, // your custom domain email address
-                pass: process.env.SMTP_PASS, // your ProtonMail SMTP password
+                user: process.env.SMTP_USER, // your Gmail address
+                pass: process.env.SMTP_PASS, // your App Password
             },
         })
 
