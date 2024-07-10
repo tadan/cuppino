@@ -6,17 +6,97 @@ html {
     font-style: normal;
     margin: 0;
     padding: 0;
-    height: 100%;
+    background: #fff6e5; /* Off-White Beige as the main background color */
+    color: #194c24; /* Dark Greenish for text, provides contrast */
+}
+.flex-col {
+    background: #fff6e5;
+}
+/* Header with Logo and Navigation Styles */
+header {
     display: flex;
-    justify-content: center;
     align-items: center;
-    background: #e1d8c7; /* Off-White Beige as the main background color */
-    color: #22281b; /* Dark Greenish for text, provides contrast */
+    justify-content: space-between;
+    padding: 2rem;
+    background: transparent; /* or any other color */
+    transition: all 0.3s ease; /* Smooth transition for layout changes */
 }
 
-.coming-soon-container {
+#logo {
+    max-width: 10rem; /* Logo size */
+    height: auto;
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    padding: 0;
+    margin: 0;
+}
+
+nav ul li {
+    margin-left: 2rem;
+}
+
+nav ul li a {
+    text-decoration: none;
+    text-transform: uppercase;
+    color: #134216; /* Link color */
+    font-size: 1.25rem;
+    font-family: 'barlow', sans-serif;
+    font-weight: 700;
+}
+
+/* Section Styles */
+section {
+    padding: 2em;
+}
+
+.content-section {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    min-height: 40rem;
+}
+
+.parallax-image {
+    min-width: 45%;
+    min-height: 45rem;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.content-text {
+    flex: 1;
+    min-width: 50%;
+    padding: 2rem;
+    z-index: 1;
+    position: relative; /* Ensure content is over the image */
+}
+
+/* Alternating layout for left and right images */
+.image-left .parallax-image {
+    order: -1;
+}
+
+.image-right .parallax-image {
+    order: 2;
+}
+
+/* Numbers Container */
+.numbers-container {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    padding: 2rem 0;
+}
+
+.number h3 {
+    font-size: 4rem; /* Big number size */
     text-align: center;
-    padding: 20px;
+    font-weight: bold;
+    margin: 0;
+    color: #194c24; /* Or choose a color that fits the design */
 }
 
 h1 {
@@ -24,23 +104,319 @@ h1 {
     font-weight: 700;
 }
 
-p {
-    color: #555;
-    font-size: 18px;
-    margin-top: 10px;
-    margin-bottom: 20px;
+/* Vision Section */
+#vision {
+    background-color: transparent; /* Light Beige */
 }
 
 .cta-button {
     display: inline-block;
-    background-color: #444; /* Dark grey button */
-    color: white;
+    padding: 1rem 2rem;
+    margin: 1rem 0;
+    background-color: #194c24; /* Dark background for visibility */
+    color: #fff; /* White text */
+    text-decoration: none;
+    border-radius: 5px; /* Rounded corners */
+    transition: background-color 0.3s ease;
+    font-size: 1.25rem;
+}
+
+.cta-button:hover {
+    background-color: #666; /* Lighten on hover */
+}
+
+/* Past Section */
+#past {
+    background-color: #f7ddb2; /* Off-White Beige */
+}
+
+/* Idea Section */
+#idea {
+    background-color: #e1d8c7; /* Light Beige */
+}
+
+.features {
+    display: flex;
+    justify-content: space-between; /* Evenly space feature items */
+    flex-wrap: wrap; /* Allow items to wrap onto the next line */
+}
+
+.feature-item {
+    flex-basis: calc(
+        33.333% - 20px
+    ); /* Take up one-third of the container width, adjust the 20px for margin */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    margin: 10px; /* Provide some space between items */
+}
+
+.feature-item i {
+    font-size: 3rem;
+    margin-bottom: 0.5rem;
+}
+
+.feature-text h3 {
+    margin: 0.5rem 0;
+}
+
+.feature-text p {
+    font-size: 1rem;
+}
+
+/* Contact and Collaboration Section */
+#catering {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    color: white; /* Dark Greenish for text */
+    background-color: #134216; /* Muted Olive */
+    text-align: center; /* Center text alignment */
+    padding: 2rem 1rem; /* Add padding as needed */
+    font-family: 'new-hero', sans-serif;
+}
+#catering h2 {
+    color: #fff6e5;
+}
+
+/* Form fields */
+#cateringForm input,
+#cateringForm select {
+    width: 100%;
+    padding: 12px 15px;
+    margin-bottom: 15px;
+    border: 1px solid #194c24;
+    border-radius: 4px;
+    font-size: 16px;
+    background-color: #f9f5eb;
+    color: #194c24;
+}
+
+#cateringForm input::placeholder,
+#cateringForm select {
+    color: #194c24;
+    opacity: 0.7;
+}
+
+/* Submit button */
+#cateringForm button {
+    width: 100%;
+    padding: 12px 15px;
+    background-color: #f9f5eb;
+    color: #194c24;
+    border: none;
+    border-radius: 4px;
+    font-size: 18px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    margin: 1rem 0;
+}
+
+#cateringForm button:hover {
+    background-color: #d2cfc5;
+}
+
+#idea .content-text {
+    text-align: center;
+}
+#catering .content-text {
+    max-width: 600px; /* Set a max-width for text content for better readability on larger screens */
+}
+/* Basic Styling for EmailOctopus Form */
+
+#email-octopus-form-container input[type='email'] {
+    padding: 10px;
+    margin-top: 5px;
+    border: 2px solid #ccc;
+    border-radius: 4px;
+}
+
+#email-octopus-form-container button {
     padding: 10px 20px;
+    background-color: #444;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+#email-octopus-form-container button:hover {
+    background-color: #666;
+}
+
+#email-octopus-form-container input {
+    font-family: 'new-hero', sans-serif;
+}
+
+#email-octopus-form-container .mastfoot {
+    display: none;
+}
+
+#email-octopus-form-container,
+.social-media {
+    width: 100%; /* Full width */
+    display: flex;
+    justify-content: center; /* Center horizontally */
+    flex-wrap: wrap; /* Wrap elements to the next line if not enough space */
+    margin-top: 20px; /* Space above newsletter and social media links */
+}
+#email-octopus-form-container .form-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+}
+
+/* Modal styles */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgb(0, 0, 0);
+    background-color: rgba(0, 0, 0, 0.4);
+}
+
+.modal-content {
+    background-color: #fefefe;
+    margin: 15% auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%;
+    max-width: 400px;
+}
+
+.close-button {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.close-button:hover,
+.close-button:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.social-media {
+    margin-top: 20px; /* Additional space above social media links */
+}
+
+.social-button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #444; /* Dark background for better visibility */
+    color: #fff; /* White text color */
     text-decoration: none;
     border-radius: 5px;
     transition: background-color 0.3s;
 }
 
-.cta-button:hover {
-    background-color: #666; /* Lighten the button on hover */
+.social-button i {
+    margin-right: 5px; /* Space between icon and text */
+}
+
+.social-button:hover {
+    background-color: #666; /* Color transition on hover */
+}
+
+.social-media p {
+    text-align: center; /* Center-align the text for consistency */
+}
+
+/* Footer Styles */
+footer {
+    background-color: #464332; /* Dark Brown for the footer */
+    color: #e1d8c7; /* Off-White Beige for footer text */
+    padding: 1em;
+    text-align: center;
+}
+
+/* Headings Style */
+h2 {
+    font-family: 'barlow', sans-serif;
+    font-weight: 600;
+    font-style: normal;
+    text-transform: uppercase;
+    color: #194c24; /* Dark Greenish for headings */
+    font-size: 4rem;
+    line-height: 0.9;
+}
+p,
+li {
+    font-size: 1.2rem;
+    line-height: 1.3;
+}
+
+/* Responsive Styles */
+@media only screen and (max-width: 768px) {
+    h2 {
+        font-size: 2.5rem; /* Adjust font size for smaller devices */
+    }
+    header {
+        flex-direction: column;
+        align-items: center;
+        padding: 0.5rem 1rem; /* Adjust padding for smaller screens */
+    }
+
+    nav ul {
+        flex-direction: column;
+        align-items: center;
+        width: 100%; /* Full width to utilize space */
+    }
+
+    nav ul li {
+        margin: 8px 0; /* Reduce margin and make it vertical */
+    }
+
+    nav ul li a {
+        text-align: center; /* Ensure links are centered */
+        width: 100%; /* Optional: Makes the entire area clickable */
+        padding: 10px; /* Padding for larger tap targets */
+        text-transform: uppercase;
+        color: #134216;
+        font-weight: bold;
+        font-family: barlow;
+    }
+    .cta-button {
+        text-align: center;
+    }
+    .content-section {
+        flex-direction: column;
+    }
+
+    #contact-collaboration .content-text {
+        padding: 1rem;
+    }
+    .feature-item {
+        flex-basis: 100%; /* Each item takes full width on small screens */
+    }
+    .numbers-container {
+        flex-direction: column;
+        text-align: center;
+    }
+    .number {
+        margin-bottom: 1rem;
+    }
+    .number h3 {
+        font-size: 3rem; /* Slightly smaller number size for mobile */
+    }
+    .parallax-image,
+    .content-text {
+        min-width: 100%;
+        order: unset;
+    }
+
+    .parallax-image {
+        background-attachment: scroll; /* Disable parallax on small screens */
+    }
 }
