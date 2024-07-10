@@ -47,7 +47,7 @@ exports.handler = async (event) => {
 
         // Send email notification to Cuppino
         await transporter.sendMail({
-            from: `"Cuppino Catering" <${process.env.SMTP_USER}>`,
+            from: `"Cuppino.it" <${process.env.SMTP_USER}>`,
             to: 'cuppino.italy@gmail.com',
             subject: 'New Catering Inquiry',
             text: `
@@ -66,7 +66,7 @@ exports.handler = async (event) => {
             to: email,
             subject: 'Catering Inquiry Confirmation',
             text: `
-                Dear ${name},
+                Ciao ${name},
 
                 Thank you for your inquiry. Here are the details we received:
 
@@ -77,10 +77,10 @@ exports.handler = async (event) => {
                 Type of Event: ${typeOfEvent}
                 Budget: ${budget} SEK
 
-                We will get back to you soon!
+                We will get back to you shortly with more information!
 
-                Best regards,
-                Cuppino Catering Team
+                Grazie mille,
+                Cuppino.it
             `,
         })
 
