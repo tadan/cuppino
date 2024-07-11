@@ -120,9 +120,23 @@ h1 {
     transition: background-color 0.3s ease;
     font-size: 1.25rem;
 }
+.cta-button i {
+    margin-right: 7px;
+}
+.button-outline {
+    background-color: transparent;
+    color: #2c6e49;
+    border: 2px solid #2c6e49;
+    margin: 1rem;
+    padding: 0.9rem 1.5rem;
+}
 
 .cta-button:hover {
-    background-color: #666; /* Lighten on hover */
+    background-color: #113418; /* Lighten on hover */
+}
+.button-outline:hover {
+    background-color: #113418;
+    color: white; /* Lighten on hover */
 }
 
 /* Past Section */
@@ -285,6 +299,7 @@ h1 {
 
 .modal-content {
     background-color: #fefefe;
+    color: #134216;
     margin: 15% auto;
     padding: 20px;
     border: 1px solid #888;
