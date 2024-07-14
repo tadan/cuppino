@@ -64,6 +64,7 @@ section {
     min-height: 45rem;
     background-repeat: no-repeat;
     background-size: cover;
+    background-position: 50% 0;
 }
 
 .content-text {
@@ -329,6 +330,7 @@ h1 {
     display: inline-flex;
     align-items: center;
     justify-content: center;
+    padding: 1rem;
     background-color: #444; /* Dark background for better visibility */
     color: #fff; /* White text color */
     text-decoration: none;
@@ -404,6 +406,7 @@ li {
     }
     .cta-button {
         text-align: center;
+        margin: 1rem 0;
     }
     .content-section {
         flex-direction: column;
@@ -433,5 +436,6 @@ li {
 
     .parallax-image {
         background-attachment: scroll; /* Disable parallax on small screens */
+        background-position: 50% 0;
     }
 }

@@ -211,78 +211,82 @@
                 <div class="content-text">
                     <h2>Catering Enquiry</h2>
                     <p>We will get back to you shortly</p>
-                    <section class="content-section" id="catering">
-                        <div class="content-text">
-                            <form id="cateringForm">
-                                <input
-                                    type="text"
-                                    id="name"
-                                    name="name"
-                                    placeholder="Your Name"
-                                    required
-                                />
-                                <input
-                                    type="email"
-                                    id="email"
-                                    name="email"
-                                    placeholder="Your Email"
-                                    required
-                                />
-                                <input
-                                    type="date"
-                                    id="date"
-                                    name="date"
-                                    required
-                                />
-                                <input
-                                    type="number"
-                                    id="numberOfPeople"
-                                    name="numberOfPeople"
-                                    placeholder="Number of People"
-                                    required
-                                />
-                                <select
-                                    id="typeOfEvent"
-                                    name="typeOfEvent"
-                                    required
-                                >
-                                    <option value="">Select Event Type</option>
-                                    <option value="Private Event"
-                                        >Private Event</option
-                                    >
-                                    <option value="After Work"
-                                        >After Work</option
-                                    >
-                                    <option value="Corporate Event"
-                                        >Corporate</option
-                                    >
-                                    <option value="Wedding">Wedding</option>
-                                    <option value="Birthday">Birthday</option>
-                                    <option value="Other">Other</option>
-                                </select>
-                                <input
-                                    type="number"
-                                    id="budget"
-                                    name="budget"
-                                    placeholder="Budget (in SEK)"
-                                    required
-                                />
-                                <button type="submit">Send Inquiry</button>
-                            </form>
-                            <!-- Confirmation Modal -->
-                            <div id="confirmationModal" class="modal">
-                                <div class="modal-content">
-                                    <span class="close-button" id="closeModal"
-                                        >&times;</span
-                                    >
-                                    <p>
-                                        Thank you for your inquiry. We will get
-                                        back to you shortly!
-                                    </p>
-                                </div>
-                            </div>
+                    <form id="cateringForm">
+                        <div class="form-group">
+                            <label for="name">Your Name</label>
+                            <input type="text" id="name" name="name" required />
                         </div>
-                    </section>
+                        <div class="form-group">
+                            <label for="email">Your Email</label>
+                            <input
+                                type="email"
+                                id="email"
+                                name="email"
+                                required
+                            />
+                        </div>
+                        <div class="form-group">
+                            <label for="date">Event Date</label>
+                            <input type="date" id="date" name="date" required />
+                        </div>
+                        <div class="form-group">
+                            <label for="numberOfPeople">Number of People</label>
+                            <input
+                                type="number"
+                                id="numberOfPeople"
+                                name="numberOfPeople"
+                                min="1"
+                                required
+                            />
+                        </div>
+                        <div class="form-group">
+                            <label for="typeOfEvent">Select Event Type</label>
+                            <select
+                                id="typeOfEvent"
+                                name="typeOfEvent"
+                                required
+                            >
+                                <option value="" disabled selected
+                                    >Choose an event type</option
+                                >
+                                <option value="Private Event"
+                                    >Private Event</option
+                                >
+                                <option value="After Work">After Work</option>
+                                <option value="Corporate Event"
+                                    >Corporate</option
+                                >
+                                <option value="Wedding">Wedding</option>
+                                <option value="Birthday">Birthday</option>
+                                <option value="Other">Other</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="budget">Budget (in SEK)</label>
+                            <input
+                                type="number"
+                                id="budget"
+                                name="budget"
+                                min="0"
+                                step="100"
+                                required
+                            />
+                        </div>
+                        <button type="submit">Send Inquiry</button>
+                    </form>
+
+                    <!-- Confirmation Modal -->
+                    <div id="confirmationModal" class="modal">
+                        <div class="modal-content">
+                            <span class="close-button" id="closeModal"
+                                >&times;</span
+                            >
+                            <p>
+                                Thank you for your inquiry. We will get back to
+                                you shortly!
+                            </p>
+                        </div>
+                    </div>
                 </div>
             </section>
         </main>
