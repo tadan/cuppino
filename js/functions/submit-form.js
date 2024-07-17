@@ -62,7 +62,7 @@ exports.handler = async (event) => {
 
         // Send confirmation email to customer
         await transporter.sendMail({
-            from: `"Cuppino Catering" <${process.env.SMTP_USER}>`,
+            from: `"Cuppino.it - Catering" <${process.env.SMTP_USER}>`,
             to: email,
             subject: 'Catering Inquiry Confirmation',
             text: `
