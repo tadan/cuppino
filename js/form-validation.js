@@ -119,10 +119,10 @@ document
         const formData = {
             name: document.getElementById('name').value,
             email: document.getElementById('email').value,
+            phone: document.getElementById('phone').value,
             date: document.getElementById('date').value,
             numberOfPeople: document.getElementById('numberOfPeople').value,
             typeOfEvent: document.getElementById('typeOfEvent').value,
-            budget: document.getElementById('budget').value,
         }
 
         try {
@@ -174,10 +174,10 @@ document
         const formData = {
             name: document.getElementById('name').value,
             email: document.getElementById('email').value,
+            phone: document.getElementById('phone').value,
             date: document.getElementById('date').value,
             numberOfPeople: document.getElementById('numberOfPeople').value,
             typeOfEvent: document.getElementById('typeOfEvent').value,
-            budget: document.getElementById('budget').value,
         }
 
         try {
