@@ -1,5 +1,4 @@
 // functions/submit-form.js
-
 const { Client } = require('@notionhq/client')
 const nodemailer = require('nodemailer')
 
@@ -11,10 +10,10 @@ exports.handler = async (event) => {
     const {
         name,
         email,
+        phone,
         date,
         numberOfPeople,
         typeOfEvent,
-        budget,
     } = JSON.parse(event.body)
 
     // Initialize Notion client
@@ -27,10 +26,10 @@ exports.handler = async (event) => {
             properties: {
                 Name: { title: [{ text: { content: name } }] },
                 Email: { email: email },
+                Phone: { phone_number: phone },
                 Date: { date: { start: date } },
                 'Number Of People': { number: parseInt(numberOfPeople) },
                 'Type of Event': { multi_select: [{ name: typeOfEvent }] },
-                Budget: { number: parseInt(budget) },
             },
         })
 
@@ -51,13 +50,13 @@ exports.handler = async (event) => {
             to: 'cuppino.italy@gmail.com',
             subject: 'New Catering Inquiry',
             text: `
-                Name: ${name}
-                Email: ${email}
-                Date: ${date}
-                Number of People: ${numberOfPeople}
-                Type of Event: ${typeOfEvent}
-                Budget: ${budget} SEK
-            `,
+        Name: ${name}
+        Email: ${email}
+        Phone: ${phone}
+        Date: ${date}
+        Number of People: ${numberOfPeople}
+        Type of Event: ${typeOfEvent}
+      `,
         })
 
         // Send confirmation email to customer
@@ -66,22 +65,18 @@ exports.handler = async (event) => {
             to: email,
             subject: 'Catering Inquiry Confirmation',
             text: `
-                Ciao ${name},
-
-                Thank you for your inquiry. Here are the details we received:
-
-                Name: ${name}
-                Email: ${email}
-                Date: ${date}
-                Number of People: ${numberOfPeople}
-                Type of Event: ${typeOfEvent}
-                Budget: ${budget} SEK
-
-                We will get back to you shortly with more information!
-
-                Grazie mille,
-                Cuppino.it
-            `,
+        Ciao ${name},
+        Thank you for your inquiry. Here are the details we received:
+        Name: ${name}
+        Email: ${email}
+        Phone: ${phone}
+        Date: ${date}
+        Number of People: ${numberOfPeople}
+        Type of Event: ${typeOfEvent}
+        We will get back to you shortly with more information!
+        Grazie mille,
+        Cuppino.it
+      `,
         })
 
         return {

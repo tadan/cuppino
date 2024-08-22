@@ -196,6 +196,7 @@ h1 {
 }
 
 /* Form fields */
+
 #cateringForm input,
 #cateringForm select {
     width: 100%;
@@ -213,7 +214,9 @@ h1 {
     color: #194c24;
     opacity: 0.7;
 }
-
+#cateringForm span {
+    color: red;
+}
 /* Submit button */
 #cateringForm button {
     width: 100%;
@@ -228,7 +231,10 @@ h1 {
     transition: background-color 0.3s ease;
     margin: 1rem 0;
 }
-
+#cateringForm button[type='submit']:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
 #cateringForm button:hover {
     background-color: #d2cfc5;
 }
