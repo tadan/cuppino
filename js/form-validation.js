@@ -76,10 +76,10 @@ document.addEventListener('DOMContentLoaded', function () {
 
     firstNameInput.addEventListener('input', function () {
         if (validateName(this.value)) {
-            firstNameError.textContent = ''
+            nameError.textContent = ''
             this.setCustomValidity('')
         } else {
-            firstNameError.textContent = 'Please enter a valid name'
+            nameError.textContent = 'Please enter a valid name'
             this.setCustomValidity('Invalid first name')
         }
         validateForm()
