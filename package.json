@@ -1,0 +1,16 @@
+{
+  "name": "cuppino",
+  "version": "1.0.0",
+  "description": "_'O cuppino è na rossa cucchiara, fatto ch''o metallo (na vota se faceva ch''a lignamma). S'ausa pà travasà cierte liquide, 'a na buatta a n'ata. Int 'a cucina s'ausa p'o broro._",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@notionhq/client": "^2.2.15",
+    "nodemailer": "^6.9.14"
+  }
+}
