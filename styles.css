@@ -309,7 +309,9 @@ h1 {
 #catering .content-text {
     max-width: 600px; /* Set a max-width for text content for better readability on larger screens */
 }
-
+#vision {
+    margin-top: 5rem;
+}
 /* Modal styles */
 .modal {
     display: none;
